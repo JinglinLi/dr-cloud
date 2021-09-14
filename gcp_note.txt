@@ -1,0 +1,44 @@
+1) Done : get gcp free tier
+2) Done : get google Research TPU research cloud access
+3) Done : create a vm (ubuntu)
+4) Done : download and run vs-code server on cloud vm : https://www.youtube.com/watch?v=ZQYZUkRXg40
+          wget <http github link for code-server>
+          tar -xvzf <github download tar>
+          sudo ./code-server --port 80 --auth none
+          http://<vm ip>:80
+5) Done : git clone repository with my code to cloud vm 
+6) Done : add and mount disk to cloud vm : https://www.youtube.com/watch?v=MmwGUvKDlN4
+          lsblk
+          sudo apt-get install unzip
+          unzip <file.zip> -d <folder name>
+7) Done : wget download data to disk
+8) TO DO : create TPU node
+9) TO DO : hook TPU node from vs-code script : https://www.youtube.com/watch?v=N5WojMutddQ
+
+
+###### tpu part
+TPU_MASTER = 'tpuname'
+tpu_model = tf.contrib.tpu.keras_to_tpu_model(
+    model,
+    strategy = tf.contrib.cluster_resolver.TPUClusterResolver(TF_MASTER))
+tpu_model.fit = (same as cpu)
+
+
+###### GPU TPU : https://www.tensorflow.org/guide/tpu https://www.tensorflow.org/guide/gpu
+
+
+
+###### venv part
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt-get update
+sudo apt-get install python3.6
+apt-get update
+apt-get install python3-virtualenv
+virtualenv -p /usr/bin/python3.6 venv
+
+
+python3.6 -m pip install --upgrade pip
+python3.6 -m pip install -r requirements.txt
+python3.6 -m pip install -r requirements_dev.txt
+
+python3.6 -m pip install cloud-tpu-client
