@@ -11,10 +11,15 @@ from keras.models import Sequential # load model
 from keras import callbacks
 from sklearn.metrics import accuracy_score
 import config
+# FOR OTHER MODELS :
+# DENSE LAYER
 
-HP_NUM_UNITS = hp.HParam('num_units', hp.Discrete([32, 64, 128]))
-HP_DROPOUT = hp.HParam('dropout', hp.RealInterval(0.2, 0.4))
+HP_NUM_UNITS = hp.HParam('num_units', hp.Discrete([32, 64, 128])) # + 256 512
+HP_DROPOUT = hp.HParam('dropout', hp.RealInterval(0.2, 0.4)) # 0.1, 0.2, 0.3, 0.4, 0.5
 HP_OPTIMIZER = hp.HParam('optimizer', hp.Discrete(['adam', 'sgd']))
+# HP_LEARNINGRATE = 
+# HP_TARGETSIZE = 
+# HP_BATCHSIZE = 16, 32, 64, 
 METRIC_ACCURACY = 'accuracy'
 
 with tf.summary.create_file_writer('logs/hparam_tuning_imquality').as_default():
@@ -34,7 +39,7 @@ def train_test_model(hparams):
     # read dataframes prepared for generators
     traindf = pd.read_csv(f'{config.PATH_VM}/data/output/q_traindf.csv', dtype=str)
     testdf = pd.read_csv(f'{config.PATH_VM}/data/output/q_traindf.csv', dtype=str)
-    
+
     # prepare train, valid, test generator
     train_datagen = ImageDataGenerator(
         rescale=1./255,

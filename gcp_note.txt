@@ -1,12 +1,13 @@
 1) Done : get gcp free tier
 2) Done : get google Research TPU research cloud access
-3) Done : create a vm (ubuntu)
+3) Done : create a vm (ubuntu 20)
 4) Done : download and run vs-code server on cloud vm : https://www.youtube.com/watch?v=ZQYZUkRXg40
-          wget <http github link for code-server>
-          tar -xvzf <github download tar>
+          wget https://github.com/cdr/code-server/releases/download/2.1692-vsc1.39.2/code-server2.1692-vsc1.39.2-linux-x86_64.tar.gz
+          tar -xvzf code-server2.1692-vsc1.39.2-linux-x86_64.tar.gz 
+          cd code-server2.1692-vsc1.39.2-linux-x86_64
           sudo ./code-server --port 80 --auth none
-          http://<vm ip>:80
-5) Done : git clone repository with my code to cloud vm 
+          http://<vm external ip>:80
+5) Done : git clone https://github.com/JinglinLi/dr-cloud.git
 6) Done : add and mount disk to cloud vm : https://www.youtube.com/watch?v=MmwGUvKDlN4
           lsblk
           sudo apt-get install unzip
