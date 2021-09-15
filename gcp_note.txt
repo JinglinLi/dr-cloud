@@ -1,6 +1,6 @@
 1) Done : get gcp free tier
 2) Done : get google Research TPU research cloud access
-3) Done : create a vm (ubuntu 20)
+3) Done : create a vm (ubuntu 20) + additional disk 
 4) Done : download and run vs-code server on cloud vm : https://www.youtube.com/watch?v=ZQYZUkRXg40
           wget https://github.com/cdr/code-server/releases/download/2.1692-vsc1.39.2/code-server2.1692-vsc1.39.2-linux-x86_64.tar.gz
           tar -xvzf code-server2.1692-vsc1.39.2-linux-x86_64.tar.gz 
@@ -29,7 +29,7 @@ tpu_model.fit = (same as cpu)
 
 
 
-###### venv part
+###### trouble shoot old python
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt-get update
 sudo apt-get install python3.6
@@ -43,3 +43,12 @@ python3.6 -m pip install -r requirements.txt
 python3.6 -m pip install -r requirements_dev.txt
 
 python3.6 -m pip install cloud-tpu-client
+
+
+####### trouble shoot no python
+sudo apt-get update
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt-get update
+sudo apt-get install python3.6
+python3.6
