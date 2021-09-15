@@ -10,8 +10,9 @@ from keras.layers import Dense, Dropout, BatchNormalization
 from keras.models import Sequential # load model
 from keras import callbacks
 from sklearn.metrics import accuracy_score
+import config
 
-HP_NUM_UNITS = hp.HParam('num_units', hp.Discrete([32, 64]))
+HP_NUM_UNITS = hp.HParam('num_units', hp.Discrete([32, 64, 128]))
 HP_DROPOUT = hp.HParam('dropout', hp.RealInterval(0.2, 0.4))
 HP_OPTIMIZER = hp.HParam('optimizer', hp.Discrete(['adam', 'sgd']))
 METRIC_ACCURACY = 'accuracy'
@@ -28,15 +29,12 @@ def train_test_model(hparams):
     INPUT_SHAPE = (512, 512, 3)
     EPOCHS = 1
     PATIENCE = 1
-    #PATH = '/Users/jinglin/Documents/spiced_projects/dr_app'
-    PATH = '/home/jinglin_li_cn_de/dr_app'
 
     ############ train, validation, test generators 
     # read dataframes prepared for generators
-    #traindf = pd.read_csv(f'{PATH}/data/output/q_traindf.csv', dtype=str)
-    traindf = pd.read_csv('/home/jinglin_li_cn_de/dr_app/data/output/q_traindf.csv', dtype=str)
+    traindf = pd.read_csv(f'{config.PATH_VM}/data/output/q_traindf.csv', dtype=str)
+    testdf = pd.read_csv(f'{config.PATH_VM}/data/output/q_traindf.csv', dtype=str)
     
-    #testdf = pd.read_csv(f'{PATH}/data/output/q_testdf.csv', dtype=str)
     # prepare train, valid, test generator
     train_datagen = ImageDataGenerator(
         rescale=1./255,

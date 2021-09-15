@@ -10,6 +10,7 @@ from keras_preprocessing.image import ImageDataGenerator
 from keras.layers import Dense, Dropout, BatchNormalization
 from keras.models import Sequential#, load_model
 from keras import callbacks
+import config
 
 TARGET_SIZE = (512, 512)
 INPUT_SHAPE = (512, 512, 3)
@@ -19,15 +20,13 @@ N_TRAIN = 1200
 EPOCHS = 20
 PATIENCE = 7
 
-NUM_UNITS = 64#32
+NUM_UNITS = 128
 DROPOUT = 0.5
 OPTIMIZER = 'adam'
 METRIC_ACCURACY = 'accuracy'
 
-PATH = '/Users/jinglin/Documents/spiced_projects/dr_app'
-
 # read dataframes prepared for generators
-traindf = pd.read_csv(f'{PATH}/data/output/d_traindf.csv', dtype=str)
+traindf = pd.read_csv(f'{config.PATH_VM}/data/output/d_traindf.csv', dtype=str)
 
 # prepare train, valid, test generator
 train_datagen = ImageDataGenerator(
@@ -79,8 +78,9 @@ model.compile(loss='categorical_crossentropy',
               optimizer=OPTIMIZER,
               metrics=[METRIC_ACCURACY])
 
-# ## for further training saved model :
-# model = load_model('diagnosis_resnet50v2_v2.h5')
+## for further training saved model :
+# model_name = ''
+# model = load_model(f'{config.PATH_VM}/model/{model_name}')
 
 # train the model
 # stop if val_loss does not increase over PATIENCE number of epochs
@@ -93,4 +93,4 @@ model.fit(
 )
 
 # save trained model
-model.save('diagnosis_resnet50v2_dense64.h5')
+model.save(f'{config.PATH_VM}/model/diagnosis_resnet50v2_dense64.h5')
