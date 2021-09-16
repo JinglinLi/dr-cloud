@@ -13,7 +13,6 @@ from keras import callbacks
 from sklearn.metrics import accuracy_score
 import config
 
-
 HP_NUM_UNITS = hp.HParam('num_units', hp.Discrete([16, 32, 64, 128])) # + 256 512
 HP_DROPOUT = hp.HParam('dropout', hp.RealInterval(0.2, 0.4)) # 0.1, 0.2, 0.3, 0.4, 0.5
 HP_OPTIMIZER = hp.HParam('optimizer', hp.Discrete(['adam']))
