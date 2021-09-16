@@ -18,7 +18,7 @@ import numpy as np
 from PIL import Image
 from skimage import transform
 from keras.models import load_model
-#import config
+import config
 
 
 class Predict:
@@ -27,15 +27,13 @@ class Predict:
     """
 
     # quality model and quality classes
-    #M_QUALITY = load_model(f'{config.PATH_VM}/model/imquality_resnet50v2_dense64.h5')
-    M_QUALITY = load_model('./model/imquality_resnet50v2_dense64.h5')
+    M_QUALITY = load_model(f'{config.PATH_VM}/model/imquality_resnet50v2_dense64.h5')
     C_QUALITY = {
         0 : 'Quality is `not good` enough for the diagnosis of retinal diseases',
         1 : 'Quality is `good` enough for the diagnosis of retinal diseases'}
 
     # diagnosis model and quality classes
-    #M_DIAGNOSIS = load_model(f'{config.PATH_VM}/model/diagnosis_resnet50v2_dense128.h5')
-    M_QUALITY = load_model('./model/imquality_resnet50v2_dense64.h5')
+    M_DIAGNOSIS = load_model(f'{config.PATH_VM}/model/diagnosis_resnet50v2_dense128.h5')
     C_DIAGNOSIS = {
         0 : 'No DR : No apparent retinopathy, no visible sign of abnormalities',
         1 : 'Mild – NPDR : Only presence of Microaneurysms',

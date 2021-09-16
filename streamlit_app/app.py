@@ -1,13 +1,13 @@
 """ DIABETIC RETINOPATHY """ 
 
 import streamlit as st
-import streamlit_app.home
-import streamlit_app.diagnosis_app
+import home
+import diagnosis_app
 
 
 PAGES = {
-    "HOME": streamlit_app.home,
-    "DIAGNOSIS APP": streamlit_app.diagnosis_app
+    "HOME": home,
+    "DIAGNOSIS APP": diagnosis_app
 }
 
 # radio version 
