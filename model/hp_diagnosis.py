@@ -1,6 +1,6 @@
+""" hyperparameter tuning for diagnosis model """
 import tensorflow as tf
 from tensorboard.plugins.hparams import api as hp
-
 import pandas as pd
 import numpy as np
 from tensorflow.keras.applications.resnet_v2 import ResNet50V2
@@ -17,23 +17,21 @@ HP_NUM_UNITS = hp.HParam('num_units', hp.Discrete([32, 64, 128]))
 HP_DROPOUT = hp.HParam('dropout', hp.RealInterval(0.2, 0.4))
 HP_OPTIMIZER = hp.HParam('optimizer', hp.Discrete(['adam', 'sgd']))
 METRIC_ACCURACY = 'accuracy'
+TARGET_SIZE = (512, 512)
+INPUT_SHAPE = (512, 512, 3)
+EPOCHS = 1
+PATIENCE = 1
 
 with tf.summary.create_file_writer('logs/hparam_tuning').as_default():
-  hp.hparams_config(
+    hp.hparams_config(
     hparams=[HP_NUM_UNITS, HP_DROPOUT, HP_OPTIMIZER],
     metrics=[hp.Metric(METRIC_ACCURACY, display_name='Accuracy')],
   )
 
 def train_test_model(hparams):
     """train and evaluate model"""
-    TARGET_SIZE = (512, 512)
-    INPUT_SHAPE = (512, 512, 3)
-    EPOCHS = 1
-    PATIENCE = 1
-    #PATH = '/Users/jinglin/Documents/spiced_projects/dr_app'
-    PATH = '/mnt'
 
-    ############ train, validation, test generators 
+    ############ train, validation, test generators
     # read dataframes prepared for generators
     traindf = pd.read_csv(f'{config.PATH_VM}/data/output/d_traindf.csv', dtype=str)
     testdf = pd.read_csv(f'{config.PATH_VM}/data/output/d_testdf.csv', dtype=str)
@@ -119,15 +117,15 @@ def run(run_dir, hparams):
 session_num = 0
 
 for num_units in HP_NUM_UNITS.domain.values:
-  for dropout_rate in (HP_DROPOUT.domain.min_value, HP_DROPOUT.domain.max_value):
-    for optimizer in HP_OPTIMIZER.domain.values:
-      hparams = {
-          HP_NUM_UNITS: num_units,
-          HP_DROPOUT: dropout_rate,
-          HP_OPTIMIZER: optimizer,
-      }
-      run_name = "run-%d" % session_num
-      print('--- Starting trial: %s' % run_name)
-      print({h.name: hparams[h] for h in hparams})
-      run('logs/hparam_tuning/' + run_name, hparams)
-      session_num += 1
+    for dropout_rate in (HP_DROPOUT.domain.min_value, HP_DROPOUT.domain.max_value):
+        for optimizer in HP_OPTIMIZER.domain.values:
+            hparams = {
+            HP_NUM_UNITS: num_units,
+            HP_DROPOUT: dropout_rate,
+            HP_OPTIMIZER: optimizer,
+            }
+            run_name = "run-%d" % session_num
+            print('--- Starting trial: %s' % run_name)
+            print({h.name: hparams[h] for h in hparams})
+            run('logs/hparam_tuning/' + run_name, hparams)
+            session_num += 1

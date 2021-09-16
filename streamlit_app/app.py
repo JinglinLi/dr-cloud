@@ -3,13 +3,11 @@
 import streamlit as st
 import home
 import diagnosis_app
-import project_report
 
 
 PAGES = {
     "HOME": home,
-    "DIAGNOSIS APP": diagnosis_app,
-    "PROJECT REPORT": project_report
+    "DIAGNOSIS APP": diagnosis_app
 }
 
 # radio version 

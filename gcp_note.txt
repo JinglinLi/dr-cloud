@@ -10,6 +10,19 @@
 5) Done : git clone https://github.com/JinglinLi/dr-cloud.git
 6) Done : add and mount disk to cloud vm : https://www.youtube.com/watch?v=MmwGUvKDlN4
           lsblk
+          mkfs.ext4 /dev/sdb
+          mount /dev/sdb /mnt/
+
+          git clone https://github.com/deepdrdoc/Deep-Diabetic-Retinopathy-Image-Dataset-DeepDRiD-.git
+
+          python3.6 -m pip install kaggle
+          kaggle competitions download -c aptos2019-blindness-detection
+          1.pip install kaggle
+          2.cd ~/.kaggle
+          3.homepage www.kaggle.com -> Your Account -> Create New API token
+          4.mv ~/Downloads/kaggle.json ./
+          5.chmod 600 ./kaggle.json
+
           sudo apt-get install unzip
           unzip <file.zip> -d <folder name>
 7) Done : wget download data to disk
@@ -18,6 +31,9 @@
 
 
 ###### tpu part
+
+gcloud compute tpus execution-groups list --zone=zone
+
 TPU_MASTER = 'tpuname'
 tpu_model = tf.contrib.tpu.keras_to_tpu_model(
     model,
@@ -41,6 +57,7 @@ virtualenv -p /usr/bin/python3.6 venv
 python3.6 -m pip install --upgrade pip
 python3.6 -m pip install -r requirements.txt
 python3.6 -m pip install -r requirements_dev.txt
+pip install -e .
 
 python3.6 -m pip install cloud-tpu-client
 
@@ -52,3 +69,20 @@ sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt-get update
 sudo apt-get install python3.6
 python3.6
+
+# no git 
+sudo apt install git-all
+
+# no pip
+sudo apt install python3-pip
+
+# own dependencies
+python3.6 -m pip install --upgrade pip
+python3.6 -m pip install -r requirements.txt
+python3.6 -m pip install -r requirements_dev.txt
+pip install -e .
+
+sudo apt-get -y install nano
+
+#### trouble shoot 
+sudo su

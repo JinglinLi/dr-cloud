@@ -1,16 +1,17 @@
 """ HOME PAGE """ 
 
 import streamlit as st
-
+import config
 
 """home"""
 def app():
     st.header('`DIABETIC RETINOPATHY`')
-    st.write('Diabetic retinopathy is a complication of diabetes, caused by high blood sugar levels damaging the back of the eye (retina). It can cause blindness if left undiagnosed and untreated. (https://www.nhs.uk/conditions/diabetic-retinopathy/)')
+    st.write('- retina desease caused by diatetes')
+    st.write('- blood vessal wall damage due to high blood sugar level')
+    st.write('- can cause blindness if left undiagnosed and untreated')
 
     st.header('`Most common cause of blindness 25-65 ages`')
 
-    st.subheader('Without ML : screening is difficult <- limited specialized doctors')
-    st.subheader('With ML : screening is possible <- ML-model + assistants + specialized doctors')
-
+    st.image(f'{config.PATH_VM}/streamlit_app/motivation.png')
+    
     st.header('`Stop blindness before it is too late`')

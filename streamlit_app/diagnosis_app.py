@@ -12,25 +12,25 @@ def app():
     col1, col2 = st.columns(2)
     with col1:
         # upload image
-        im_file_buffer = st.file_uploader('Please upload a retinal fundus image.', type=["png", "jpg"])
-        im = Image.open(im_file_buffer)
-        im_array = np.array(im)
-        if im is not None:
+        uploaded_file = st.file_uploader('Please upload a retinal fundus image.', type=["png", "jpg"])
+        if uploaded_file is not None:
+            im = Image.open(uploaded_file)
+            im_array = np.array(im)
             st.image(
                 im,
                 caption=f"Image Size : {im_array.shape[0:2]}",
                 use_column_width=True,
             )
-        p = Predict(im)
-        quality = p.predict_quality()
-        diagnosis = p.predict_dr_level()
+            p = Predict(im)
+            quality = p.predict_quality()
+            diagnosis = p.predict_dr_level()
 
-    with col2:
-        st.subheader('`IMAGE QUALITY`')
-        st.write(quality)
-        if quality != 'Quality is `good` enough for the diagnosis of retinal diseases':
-            st.write('Please upload another image.')
+            with col2:
+                st.subheader('`IMAGE QUALITY`')
+                st.write(quality)
+                if quality != 'Quality is `good` enough for the diagnosis of retinal diseases':
+                    st.write('Please upload another image.')
 
-        if quality == 'Quality is `good` enough for the diagnosis of retinal diseases':
-            st.subheader('`DIAGNOSIS`')
-            st.write(diagnosis)
+                if quality == 'Quality is `good` enough for the diagnosis of retinal diseases':
+                    st.subheader('`DIAGNOSIS`')
+                    st.write(diagnosis)

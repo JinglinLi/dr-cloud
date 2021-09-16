@@ -79,8 +79,8 @@ model.compile(loss='categorical_crossentropy',
               metrics=[METRIC_ACCURACY])
 
 ## for further training saved model :
-# model_name = ''
-# model = load_model(f'{config.PATH_VM}/model/{model_name}')
+# d_model_name = ''
+# d_model = load_model(f'{config.PATH_VM}/model/{d_model_name}')
 
 # train the model
 # stop if val_loss does not increase over PATIENCE number of epochs
@@ -93,4 +93,4 @@ model.fit(
 )
 
 # save trained model
-model.save(f'{config.PATH_VM}/model/diagnosis_resnet50v2_dense64.h5')
+model.save(f'{config.PATH_VM}/model/diagnosis_resnet50v2_dense128.h5')

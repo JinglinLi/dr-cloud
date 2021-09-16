@@ -7,7 +7,7 @@ import pandas as pd
 from tensorflow.keras.applications.resnet_v2 import ResNet50V2
 from keras_preprocessing.image import ImageDataGenerator
 from keras.layers import Dense, Dropout, BatchNormalization
-from keras.models import Sequential # load model
+from keras.models import Sequential#, load_model
 from keras import callbacks
 import config
 
@@ -15,8 +15,8 @@ import config
 TARGET_SIZE = (512, 512)
 INPUT_SHAPE = (512, 512, 3)
 
-EPOCHS = 1
-PATIENCE = 1
+EPOCHS = 10
+PATIENCE = 5
 
 NUM_UNITS = 64
 DROPOUT = 0.5
@@ -77,11 +77,11 @@ q_model.compile(loss='binary_crossentropy',
               optimizer=OPTIMIZER,
               metrics=[METRIC_ACCURACY])
 
-## for further training saved model :
-# model_name = ''
-# model = load_model(f'{config.PATH_VM}/model/{model_name}')
+# # for further training saved model :
+# q_model_name = 'imquality_resnet50v2_dense64.h5'
+# q_model = load_model(f'{config.PATH_VM}/model/{q_model_name}')
 
-# train the model
+# train the model>
 # stop if val_loss does not increase over PATIENCE number of epochs
 callback = callbacks.EarlyStopping(monitor='val_loss', patience=PATIENCE)
 q_model.fit(
@@ -91,4 +91,4 @@ q_model.fit(
     callbacks=[callback])
 
 # save trained model
-q_model.save(f'{config.PATH_VM}/model/imquality_resnet50v2_v1.h5')
+q_model.save(f'{config.PATH_VM}/model/imquality_resnet50v2_dense64_v2.h5')
