@@ -1,4 +1,4 @@
-![Tests + Pylint](https://github.com/JinglinLi/aptos/workflows/Build%20and%20Test/badge.svg)
+![Tests + Pylint](https://github.com/JinglinLi/dr-cloud/workflows/Build%20and%20Test/badge.svg)
 
 # dr-cloud
 
