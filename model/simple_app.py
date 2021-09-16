@@ -2,7 +2,7 @@
 import streamlit as st
 from PIL import Image
 import numpy as np
-from model.predict import Predict
+from predict import Predict
 
 
 """diagnosis app"""
