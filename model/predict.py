@@ -18,7 +18,7 @@ import numpy as np
 from PIL import Image
 from skimage import transform
 from keras.models import load_model
-import config
+#import config
 
 
 class Predict:
