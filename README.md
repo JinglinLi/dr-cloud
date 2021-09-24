@@ -41,5 +41,9 @@ Note : datasets that wget from deepdr and kaggle should be kept in a separate fo
 
 ## RESULT
 
+https://user-images.githubusercontent.com/82587457/134711624-c1e3208d-dd33-4bee-a2bc-c57a0173ca9e.mov
+
+
+
 ## USAGE
 
