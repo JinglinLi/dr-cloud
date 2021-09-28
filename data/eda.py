@@ -5,9 +5,9 @@ EDA : print and plot essential information about the data
 
 from PIL import Image
 import pandas as pd
-import config
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
+import config
 
 def print_dataset_size():
     q_traindf = pd.read_csv(f'{config.PATH_VM}/data/output/q_traindf.csv')

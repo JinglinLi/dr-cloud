@@ -26,6 +26,6 @@ jobs:
         pytest
     - name: Run pylint
       run: |
-        pylint model/predict.py
-        pylint model/train_diagnosis.py
-        pylint model/train_quality.py
+        pylint dr_app/predict.py
+        pylint dr_app/train_diagnosis.py
+        pylint dr_app/train_quality.py

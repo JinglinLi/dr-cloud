@@ -10,9 +10,9 @@ def open_file(fname):
 setup(
    name="dr_app",            # name of your package
    version="0.0.1",
-   description="diabetic retinopathy diagnosis",
+   description="web app for diagnosing diabetic retinopathy",
    long_description=open_file("README.md"),  # only if you have a README.md
-   packages=["model"],      # THIS IS THE FOLDER NAME, PIP WILL COPY EVERYTHIN IN HERE
+   packages=["dr_app"],      # THIS IS THE FOLDER NAME, PIP WILL COPY EVERYTHIN IN HERE
    url="...",
    license="MIT",
    classifiers=[

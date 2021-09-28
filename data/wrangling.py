@@ -1,5 +1,5 @@
 """ 
-prepare and save dataframe for model training and evaluation : 
+prepare and save dataframe for eda, model training and evaluation : 
 
 Data Source : 
 deepdr : https://isbi.deepdr.org
