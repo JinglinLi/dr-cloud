@@ -27,13 +27,13 @@ class Predict:
     """
 
     # quality model and quality classes
-    M_QUALITY = load_model('./model/imquality_resnet50v2_dense64.h5')
+    M_QUALITY = load_model('./dr_app/imquality_resnet50v2_dense64.h5')
     C_QUALITY = {
         0 : 'Quality is `not good` enough for the diagnosis of retinal diseases',
         1 : 'Quality is `good` enough for the diagnosis of retinal diseases'}
 
     # diagnosis model and quality classes
-    M_DIAGNOSIS = load_model('./model/diagnosis_resnet50v2_dense128.h5')
+    M_DIAGNOSIS = load_model('./dr_app/diagnosis_resnet50v2_dense128.h5')
     C_DIAGNOSIS = {
         0 : 'No DR : No apparent retinopathy, no visible sign of abnormalities',
         1 : 'Mild – NPDR : Only presence of Microaneurysms',
@@ -67,7 +67,6 @@ class Predict:
         self.pred_quality_details = Predict.M_QUALITY.predict(pp_image)[0][0]
         self.pred_quality = Predict.C_QUALITY.get(np.round(self.pred_quality_details))
         print(self.pred_quality, self.pred_quality_details)
-        # print(str(self.pred_quality_details))
         return self.pred_quality
 
     def predict_dr_level(self):

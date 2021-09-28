@@ -33,27 +33,25 @@ Diagnosis Dataset:
 
 ## CONTENT :
 `dr_app`: (current github repo folder)
-|-`config.py`: path to adjust for local run vs cloud run
+|-`config.py`: path to adjust for running localy/on cloud
 |-`data/wrangling.py`: prepare and save dataframes used for eda, training and evaluation
 |-`data/eda.py`: print and plot key information about dataset 
-|-`dr_app/init.py`
-|-`dr_app/train_diagnosis.py`
-|-`dr_app/train_quality.py`
-|-`dr_app/hp_diagnosis.py` 
-|-`dr_app/hp_imquality.py`
-|-`dr_app/predict.py`
-|-`dr_app/streamlit_app.py`
-|-`test/test_predict.py`
-|-`requirements.txt`
-|-`requirements_dev.txt` 
-|-`.pylintrc` 
-|-`.github/workflows/build.yml`
-|-`setup.py`
-`dr_app_mnt`: (a separate folder, not on github, to facilitate runing both locally and on cloud)
+|-`dr_app/init.py`: for packaging
+|-`dr_app/train_diagnosis.py`: priliminary training 
+|-`dr_app/train_quality.py`: priliminary training
+|-`dr_app/hp_diagnosis.py`: hyperparameter tunning
+|-`dr_app/hp_imquality.py`: hyperparameter tunning
+|-`dr_app/predict.py`: make prediction
+|-`dr_app/streamlit_app.py`: web app
+|-`test/test_predict.py`: for automatic testing
+|-`requirements.txt`: requirementsfor app
+|-`requirements_dev.txt`: requirements for development
+|-`.pylintrc`: pylint exceptions
+|-`.github/workflows/build.yml`: for contineous integration
+|-`setup.py`: for packaging
+`dr_app_mnt`: (data put in separate folder, not in this github folder, to facilitate set up on cloud)
 |-`deepdr`: data from deepdr
 |-`kaggle`: data from kaggle
 
 ## RESULT
 https://user-images.githubusercontent.com/82587457/134711624-c1e3208d-dd33-4bee-a2bc-c57a0173ca9e.mov
-
-

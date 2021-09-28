@@ -1,0 +1,85 @@
+useful notes for running on google cloud platform 
+
+1)  get gcp free tier
+2)  get google Research TPU research cloud access
+3)  create a vm (ubuntu 20) + additional disk 
+4)  download and run vs-code server on cloud vm 
+        https://www.youtube.com/watch?v=ZQYZUkRXg40
+        wget https://github.com/cdr/code-server/releases/download/2.1692-vsc1.39.2/code-server2.1692-vsc1.39.2-linux-x86_64.tar.gz
+        tar -xvzf code-server2.1692-vsc1.39.2-linux-x86_64.tar.gz 
+        cd code-server2.1692-vsc1.39.2-linux-x86_64
+        sudo ./code-server --port 80 --auth none
+        http://<vm external ip>:80
+5)  git clone code: https://github.com/JinglinLi/dr_app.git
+6)  add and mount disk to cloud vm
+        https://www.youtube.com/watch?v=MmwGUvKDlN4
+        lsblk
+        mkfs.ext4 /dev/sdb
+        mount /dev/sdb /mnt/
+7)  get data:
+        deepdr: git clone https://github.com/deepdrdoc/Deep-Diabetic-Retinopathy-Image-Dataset-DeepDRiD-.git
+        kaggle api:
+            python3.6 -m pip install kaggle
+            kaggle competitions download -c aptos2019-blindness-detection
+            1.pip install kaggle
+            2.cd ~/.kaggle
+            3.homepage www.kaggle.com -> Your Account -> Create New API token
+            4.mv ~/Downloads/kaggle.json ./
+            5.chmod 600 ./kaggle.json
+            sudo apt-get install unzip
+            unzip <file.zip> -d <folder name>
+8)  create TPU node
+9)  hook TPU node from vs-code script
+        https://www.youtube.com/watch?v=N5WojMutddQ
+
+
+
+###### trouble shoot old python
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt-get update
+sudo apt-get install python3.6
+apt-get update
+apt-get install python3-virtualenv
+virtualenv -p /usr/bin/python3.6 venv
+
+python3.6 -m pip install --upgrade pip
+python3.6 -m pip install -r requirements.txt
+python3.6 -m pip install -r requirements_dev.txt
+pip install -e .
+
+python3.6 -m pip install cloud-tpu-client
+
+####### trouble shoot no python
+sudo apt-get update
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt-get update
+sudo apt-get install python3.6
+python3.6
+
+# no git 
+sudo apt install git-all
+
+# no pip
+sudo apt install python3-pip
+
+# own dependencies
+python3.6 -m pip install --upgrade pip
+python3.6 -m pip install -r requirements.txt
+python3.6 -m pip install -r requirements_dev.txt
+pip install -e .
+
+#### trouble shoot root
+sudo su
+
+###### TPU maybe useful
+gcloud compute tpus execution-groups list --zone=zone
+TPU_MASTER = 'tpuname'
+tpu_model = tf.contrib.tpu.keras_to_tpu_model(
+    model,
+    strategy = tf.contrib.cluster_resolver.TPUClusterResolver(TF_MASTER))
+tpu_model.fit = (same as cpu)
+
+###### GPU TPU maybe useful
+https://www.tensorflow.org/guide/tpu 
+https://www.tensorflow.org/guide/gpu
