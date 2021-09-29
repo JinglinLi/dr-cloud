@@ -6,7 +6,7 @@ from dr_app.predict import Predict
 import config
 
 # load an example image
-im = Image.open(f'{config.PATH_DISK}/data/kaggle/test_images/ffdc2152d455.png')
+im = Image.open('./test/0a262e8b2a5a.png')
 pred_im = Predict(im)
 
 def test_preprocess_image():
