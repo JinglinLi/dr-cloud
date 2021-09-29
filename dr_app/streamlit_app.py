@@ -1,10 +1,9 @@
-""" DIAGNOSIS APP """ 
+""" DIAGNOSIS APP """
 import streamlit as st
 from PIL import Image
 import numpy as np
-from model.predict import Predict
+from dr_app.predict import Predict
 
-"""diagnosis app"""
 
 st.header('DIABETIC RETINOPATHY DIAGNOSTIC APP')
 

@@ -1,4 +1,5 @@
 """print model summary"""
+
 from keras.models import load_model
 from tensorflow.keras.applications.resnet_v2 import ResNet50V2
 import config

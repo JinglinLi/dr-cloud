@@ -27,5 +27,7 @@ jobs:
     - name: Run pylint
       run: |
         pylint dr_app/predict.py
+        pylint dr_app/streamlit_app.py
         pylint dr_app/train_diagnosis.py
         pylint dr_app/train_quality.py
+        pylint dr_app/model_summary.py

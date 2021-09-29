@@ -33,7 +33,7 @@ Diagnosis Dataset:
 
 ## CONTENT :
 `dr_app`: (current github repo folder) \
-|-`config.py`: path variable for running localy/on cloud \
+|-`config.py`: path variable for running locally/on cloud \
 |-`data/wrangling.py`: prepare and save dataframes used for eda, training and evaluation \
 |-`data/eda.py`: print and plot key information about dataset  \
 |-`dr_app/__init__.py`: make import shorter \
@@ -49,9 +49,9 @@ Diagnosis Dataset:
 |-`.pylintrc`: instructions for pylint \
 |-`.github/workflows/build.yml`: for automated build and test \
 |-`setup.py`: instructions for pip \
-`dr_app_mnt`: (data put in separate folder, not in this github folder, to facilitate set up on  cloud) \
+`dr_app_mnt`: (put data in a separate folder, not in this github folder, to facilitate set up on  cloud) \
 |-`deepdr`: data from deepdr \
-|-`kaggle`: data from kaggle \
+|-`kaggle`: data from kaggle
 
 ## RESULT
 https://user-images.githubusercontent.com/82587457/134711624-c1e3208d-dd33-4bee-a2bc-c57a0173ca9e.mov
