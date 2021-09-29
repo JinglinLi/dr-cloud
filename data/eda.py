@@ -7,7 +7,7 @@ from PIL import Image
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
-import config
+import dr_app.config as config
 
 def print_dataset_size():
     """print the size of imquality and diagnosis dataset"""

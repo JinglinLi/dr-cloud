@@ -27,7 +27,7 @@ if want to see kaggle score :
 """
 
 import pandas as pd
-import config
+import dr_app.config
 
 def generate_quality_df():
     """
