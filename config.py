@@ -8,6 +8,6 @@ PATH_DISK = '/Users/jinglin/Documents/spiced_projects/dr_app_mnt'
 
 # ### cloud machine
 # # path to disk contaning data
-# PATH_DISK = '' 
+# PATH_DISK = ''
 # # path to vm containing app code
 # PATH_VM = ''   
