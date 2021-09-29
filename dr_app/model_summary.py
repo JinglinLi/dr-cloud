@@ -13,7 +13,7 @@ base_model = ResNet50V2(
     pooling='avg'
 )
 
-q_model = load_model(f'{config.PATH_VM}/model/imquality_resnet50v2_dense64.h5')
+q_model = load_model(f'{config.PATH_VM}/dr_app/imquality_resnet50v2_dense64.h5')
 
 print('     ')
 print(base_model.summary())

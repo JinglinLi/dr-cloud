@@ -1,4 +1,4 @@
-""" 
+"""
 EDA : print and plot essential information about the data
 
 """
@@ -10,6 +10,7 @@ import matplotlib.image as mpimg
 import config
 
 def print_dataset_size():
+    """print the size of imquality and diagnosis dataset"""
     q_traindf = pd.read_csv(f'{config.PATH_VM}/data/output/q_traindf.csv')
     q_testdf = pd.read_csv(f'{config.PATH_VM}/data/output/q_testdf.csv')
     q_total = q_traindf.shape[0] + q_testdf.shape[0]
@@ -32,7 +33,8 @@ def print_dataset_size():
     print('diagnosis : total {}, train {}, valid{}, test {}'.format(d_total, d_train, d_valid, d_test))
     print('    ')
 
-def plot_train_class_counts():
+def print_train_class_counts():
+    """print class counts of imquality and diagnosis dataset"""
     q_traindf = pd.read_csv(f'{config.PATH_VM}/data/output/q_traindf.csv')
     d_traindf = pd.read_csv(f'{config.PATH_VM}/data/output/d_traindf.csv')
 
@@ -45,6 +47,7 @@ def plot_train_class_counts():
     print(d_traindf['diagnosis'].value_counts().sort_index())
 
 def plot_diagnosis_class_images():
+    """plot example image of each diagnosis category"""
     d_traindf = pd.read_csv(f'{config.PATH_VM}/data/output/d_traindf.csv')
     for i in [0, 1, 2, 3, 4]:
         d = d_traindf[d_traindf['diagnosis'] == i].sample(1)
@@ -56,6 +59,7 @@ def plot_diagnosis_class_images():
     plt.show()
 
 def plot_imquality_class_images():
+    """plot example image of each imquality category"""
     q_traindf = pd.read_csv(f'{config.PATH_VM}/data/output/q_traindf.csv')
     for i in [0, 1]:
         q = q_traindf[q_traindf['im_quality'] == i].sample(1)
@@ -68,6 +72,6 @@ def plot_imquality_class_images():
 
 if __name__ == '__main__':
     print_dataset_size()
-    plot_train_class_counts()
+    print_train_class_counts()
     plot_diagnosis_class_images()
     plot_imquality_class_images()

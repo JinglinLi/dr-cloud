@@ -79,7 +79,7 @@ q_model.compile(loss='binary_crossentropy',
 
 # # for further training saved model :
 # q_model_name = 'imquality_resnet50v2_dense64.h5'
-# q_model = load_model(f'{config.PATH_VM}/model/{q_model_name}')
+# q_model = load_model(f'{config.PATH_VM}/dr_app/{q_model_name}')
 
 # train the model>
 # stop if val_loss does not increase over PATIENCE number of epochs
@@ -91,4 +91,4 @@ q_model.fit(
     callbacks=[callback])
 
 # save trained model
-q_model.save(f'{config.PATH_VM}/model/imquality_resnet50v2_dense64_v2.h5')
+q_model.save(f'{config.PATH_VM}/dr_app/imquality_resnet50v2_dense64_v2.h5')
