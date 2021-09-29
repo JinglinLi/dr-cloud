@@ -1,4 +1,5 @@
-""" DIAGNOSIS APP """
+""" streamlit web app for diagnosing diabetic retinopathy """
+
 import streamlit as st
 from PIL import Image
 import numpy as np
