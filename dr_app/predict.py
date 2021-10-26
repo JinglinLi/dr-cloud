@@ -18,8 +18,6 @@ import numpy as np
 from PIL import Image
 from skimage import transform
 from keras.models import load_model
-import config
-
 
 class Predict:
     """
@@ -80,7 +78,7 @@ class Predict:
         return self.pred_diagnosis
 
 if __name__ == '__main__':
-    im = Image.open(f'{config.PATH_DISK}/data/kaggle/test_images/ffdc2152d455.png')
+    im = Image.open('./dr_app/0a262e8b2a5a.png')
     p = Predict(im)
     p.predict_quality()
     p.predict_dr_level()
