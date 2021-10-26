@@ -2,7 +2,7 @@
 import streamlit as st
 from PIL import Image
 import numpy as np
-from predict import Predict
+from dr_app.predict import Predict
 
 
 st.header('DIABETIC RETINOPATHY DIAGNOSTIC APP')
