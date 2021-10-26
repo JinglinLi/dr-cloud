@@ -1,4 +1,5 @@
 ![Tests + Pylint](https://github.com/JinglinLi/dr-cloud/workflows/Build%20and%20Test/badge.svg)
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/jinglinli/dr_app/deploy/dr_app/streamlit_app.py)
 
 # dr_app: a web app for diagnosing diabetic retinopathy
 
